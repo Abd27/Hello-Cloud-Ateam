@@ -1,6 +1,8 @@
 FROM node:12.18.1
+ENV NODE_ENV=production
 WORKDIR /app
-COPY . /app
-CMD node index.js
-EXPOSE 3000:3000
+COPY [ ".", "/app" ]
+RUN npm install --production
+CMD [ "node", "index.js" ]
+
 
